@@ -1,0 +1,22 @@
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.card p {
+  font-size: 32px;
+  color: yellow;
+  font-weight: 500;
+}
+
+.card .crossed {
+  text-decoration: line-through;
+  color: blue;
+}

@@ -1,0 +1,19 @@
+.winner {
+  position: absolute;
+  top: 55%;
+  margin-left: 100px;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.winner p {
+  color: rgb(255, 0, 0);
+  font-size: 92px;
+  transition: cubic-bezier(0.77, 0, 0.175, 1);
+}
