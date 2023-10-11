@@ -1,26 +1,30 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Card from "./Card";
 
-test("Card renders correctly", () => {
-  const num = 0;
-  const label = "Dropdown";
-  const list = ["option1", "option2", "option3"];
-  const onChange = jest.fn();
+describe("Card component", () => {
+  it("renders the number correctly", () => {
+    const num = 10;
+    render(<Card num={num} />);
 
-  render(
-    <Card
-      num={num}
-      // label={label}
-      // list={list}
-      // onChange={onChange}
-    />
-  );
-
-  expect(screen.getByLabelText("Dropdown:")).toBeInTheDocument();
-
-  fireEvent.change(screen.getByLabelText("Dropdown:"), {
-    target: { num: 1 },
+    const numElement = screen.getByText(num);
+    expect(numElement).toBeInTheDocument();
   });
-  expect(onChange).toHaveBeenCalledTimes(1);
+
+  it('renders crossed text when the "crossed" prop is true', () => {
+    const num = 5;
+    render(<Card num={num} crossed={true} />);
+
+    const crossedElement = screen.getByText(num);
+    expect(crossedElement).toHaveClass("crossed");
+  });
+
+  it("renders default values when props are not provided", () => {
+    render(<Card />);
+
+    const defaultNumElement = screen.getByText("Default Number");
+    expect(defaultNumElement).toBeInTheDocument();
+
+    const defaultCrossedElement = screen.getByText("Default Number");
+    expect(defaultCrossedElement).not.toHaveClass("crossed");
+  });
 });

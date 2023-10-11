@@ -1,6 +1,7 @@
 .card {
-  width: 100px;
-  height: 100px;
+  min-width: 50px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: green;
   border: 1px solid black;
   display: flex;
@@ -14,6 +15,7 @@
   font-size: 32px;
   color: yellow;
   font-weight: 500;
+  margin: 0;
 }
 
 .card .crossed {

@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import Card from "./Card";
 import Popup from "./Popup";
 import Winner from "./Winner";
-import { BingoAction } from "../store/actions";
+// import { BingoAction } from "../store/actions";
 import "./BingoCard.css";
 
-const BingoCard: React.FC = () => {
-  const dispatch = useDispatch();
+interface BingoCardProps {
+  player: string;
+}
+
+const BingoCard = ({ player }: BingoCardProps) => {
+  // const dispatch = useDispatch();
 
   const heading = ["B", "I", "N", "G", "O"];
   const minArr = [1, 26, 41, 56, 71];
@@ -94,7 +98,7 @@ const BingoCard: React.FC = () => {
 
   return (
     <div className="d-flex dir-col a-center bingo-card">
-      <h2>Bingo Game</h2>
+      <h2>{player}</h2>
 
       {showPopup ? (
         <Popup letter={popupLetter} num={popupNum} />

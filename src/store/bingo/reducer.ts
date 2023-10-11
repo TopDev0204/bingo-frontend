@@ -1,10 +1,15 @@
-import { BINGO_REQUEST, BINGO_SUCCESS, BINGO_ERROR } from "./actionTypes";
-import { LogbookInterface } from "../../utils/typeHelper";
+import {
+  BINGO_REQUEST,
+  BINGO_SUCCESS,
+  BINGO_ERROR,
+  BINGO_START,
+} from "./actionTypes";
 
 const INITIIAL_STATE = {
   status: false,
   data: null,
   error: null,
+  players: [],
 };
 
 const Bingo = (
@@ -13,11 +18,21 @@ const Bingo = (
     type:
       | typeof BINGO_REQUEST
       | typeof BINGO_SUCCESS
-      | typeof BINGO_ERROR;
-    payload: LogbookInterface | string;
+      | typeof BINGO_ERROR
+      | typeof BINGO_START;
+    payload: string[] | string;
   }
 ) => {
   switch (action.type) {
+    case BINGO_START:
+      return {
+        ...state,
+        status: false,
+        data: null,
+        error: null,
+        players: action.payload,
+      };
+
     case BINGO_REQUEST:
       return {
         ...state,

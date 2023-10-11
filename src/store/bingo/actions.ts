@@ -1,18 +1,26 @@
-import { BINGO_REQUEST, BINGO_SUCCESS, BINGO_ERROR } from "./actionTypes";
+import {
+  BINGO_REQUEST,
+  BINGO_SUCCESS,
+  BINGO_ERROR,
+  BINGO_START,
+} from "./actionTypes";
 
-import { LogbookInterface } from "../../utils/typeHelper";
+export const bingoStart = (data: string[]) => ({
+  type: BINGO_START,
+  payload: data,
+});
 
-export const vehicleRequest = () => ({
+export const bingoRequest = () => ({
   type: BINGO_REQUEST,
   payload: {},
 });
 
-export const vehicleSuccess = (data: LogbookInterface) => ({
+export const bingoSuccess = (data: any) => ({
   type: BINGO_SUCCESS,
   payload: data,
 });
 
-export const vehicleError = (data: string) => ({
+export const bingoError = (data: string) => ({
   type: BINGO_ERROR,
   payload: data,
 });
